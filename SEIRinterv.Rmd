@@ -1,0 +1,60 @@
+---
+output:
+  html_document:
+    df_print: paged
+---
+
+
+
+## Intervention by reducing $c$ and increasing $f$ 
+<font size="3">
+In the intervention model you assumed **`r sprintf("%.2f", ((F._Value)*100))`** % of population reduce their social contacts by **`r sprintf("%.2f", (1-C.)*100 )`**%. With such intervention the individual social contacts will reduce  to **`r sprintf("%.2f", (1-Opt()$par[4])*100-((1-C.)*100))`** % for **`r sprintf("%.2f", (Opt()$par[5])*100+((F._Value)*100))`** % of population. The max number of confirmed cases (I.i) will reach to **`r sprintf("%.0f", ImaxInterv)`** on **`r as.character(DateMaxInterv)`**.`r ifelse(is.na(INextmaxInterv),print("This max value is at the upper bound of the data, and therefore may not be the actual max, increase forecast step to reach the peak value."),print(""))` This intervention gives an effective reproduction number ($R_t$) about **`r sprintf("%.0f", (((1-(1-C.^2)*F._Value)*R_zero)/R_zero)*100)`**% of the basic reproduction number ($R_0$).
+
+
+<font>
+
+
+```{r,echo=F, results='asis'}
+
+BETA<-Opt()$par[1]*(1-(1-C.^2)*F._Value)
+SIGMA<-Opt()$par[3]
+GAMA<-Opt()$par[2]
+R0<-Opt()$par[1]/Opt()$par[2]
+RT<-(1-(1-C.^2)*F._Value)*R_zero
+R0R<-sprintf("%.0f", 100-((((1-(1-C.^2)*F._Value)*R_zero)/R_zero)*100))
+C.value<-(1-Opt()$par[4])*100-((1-C.)*100)
+F.value<- (Opt()$par[5])*100+((F._Value)*100)
+Population<-N.
+Ib<-sprintf("%.0f", Imax)
+Ii<-sprintf("%.0f", ImaxInterv)
+Dateb<- as.character(DateMax)
+Datei<-as.character(DateMaxInterv)
+  
+
+ a <- structure(list( c("$\\beta$", "$\\sigma$", "$\\gamma$", "$R_0$", "$R_t$","$R_r$","$c$","$f$","$N$","$I_b$","$Date_{I_b}$","$I_i$","$Date_{I_i}$"
+), Definition = c(
+                  "the effective contact rate",
+                  "The infection rate of an exposed person",
+                  "The recovery rate of an infected person",
+                  "The basic reproduction number",
+                  "The effective reproduction number",
+                  "Reduction of basic reproduction number",
+                  "The social contacts",
+                  "Population involved in social distancing intervention", 
+                  "Population",
+                  "The basic number of confirmed cases",
+                  "$I_b$ peak date",
+                  "Confirmed cases with intervention",
+                  "$I_i$ peak date"), Unit = c("$day^{-1}$", 
+"$day^{-1}$", "$day^{-1}$", "dimensionless", "dimensionless","%","%","%","People","People","Date","People","Date"),Value = c(BETA, SIGMA, GAMA, R0,RT,R0R,C.value,F.value,Population,Ib,Dateb,Ii,Datei)), .Names = c("Parameter","Definition", "Unit", "Estimated value"), row.names = c(NA, 13L), class = "data.frame")
+ 
+
+```
+
+```{r,echo=F, eval=T,out.width = "30%"}
+ kable(a, booktabs = TRUE, longtable = TRUE,caption =  "Estimated values of epidemiological parameters in SEIR model") %>% 
+  kable_styling(full_width = F)  
+   
+```
+
+

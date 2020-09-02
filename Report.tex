@@ -1,0 +1,165 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Untitled},
+  pdfauthor={hadi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Untitled}
+\author{hadi}
+\date{4/11/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\subsubsection{Introduction}\label{introduction}}
+
+Coronavirus disease 2019 (COVID-19) is an infectious disease caused by
+severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)
+\href{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/technical-guidance/naming-the-coronavirus-disease-\%28covid-2019\%29-and-the-virus-that-causes-it}{(1)}.
+On 31 December 2019, the WHO China Country Office was informed the first
+cases of Coronavirus disease 2019 (COVID-19) in Wuhan City, Hubei
+Province of China
+\href{https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200121-sitrep-1-2019-ncov.pdf?sfvrsn=20a99c10_4}{(2)}.
+
+COVID-19 disease is spreading rapidly throughout the world. The outbreak
+was declared a public health emergency of international concern on 30
+January 2020
+\href{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen}{(3)}.WHO
+declared the outbreak a global pandemic on March 11, 2020
+\href{https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020}{(4)}.
+In response to this ongoing public health emergency, the Center for
+Systems Science and Engineering \href{https://systems.jhu.edu/}{(CSSE)}
+at Johns Hopkins University, Baltimore, MD, USA, developed an online
+interactive \href{https://coronavirus.jhu.edu/map.html}{dashboard}, to
+visualize and track reported cases of COVID-19 in real time
+\href{https://www.thelancet.com/journals/laninf/article/PIIS1473-3099\%2820\%2930120-1/fulltext}{(5)}.
+They developed the dashboard to provide researchers, public health
+authorities, and the general public with a tool to track the outbreak.
+Johns Hopkins University was collected COVID-19 outbreak data from
+several sources including including
+\href{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports}{WHO},
+U.S. \href{https://www.cdc.gov/coronavirus/2019-ncov/index.html}{CDC},
+\href{https://www.ecdc.europa.eu/en/home}{ECDC}, China CDC
+\href{http://www.chinacdc.cn/en/}{(CCDC)},
+\href{http://www.nhc.gov.cn/yjb/s3578/new_list.shtml}{NHC} and
+\href{https://3g.dxy.cn/newh5/view/pneumonia?scene=2\&clicktime=1579582238\&enterid=1579582238\&from=singlemessage\&isappinstalled=0}{DXY},
+as well as city-level and state-level health authorities. They made all
+collected data freely available, through a
+\href{https://github.com/CSSEGISandData/COVID-19}{GitHub repository} to
+be used for further analyzing by researchers. However, the data in this
+repository requires pre-processing or more aggregating before any use,
+which I thought is out of the boredom of many researchers. In addition,
+Johns Hopkins dashboard does not allow options like downloading of
+processed data, analyzing of date at provincial-scale, or allowing the
+use of epidemiological models such as SEIR to be applied to country data
+for estimation of epidemiological parameters. Therefore, developing a
+dashboard with more capabilities to assist the researchers in analysing
+the COVID-19 pandemic situation for countries or provinces is necessary.
+
+\hypertarget{what-this-dashboard-can-do}{%
+\subsubsection{What this dashboard can
+do?}\label{what-this-dashboard-can-do}}
+
+In this new dashboard the pandemic data was directly called from GitHub
+repository of Johns Hopkins University and following capabilities are
+provided:
+
+\begin{itemize}
+\tightlist
+\item
+  Producing up-to-date charts of cumulative or daily trends of epidemic
+  for world, countries and provinces
+\item
+  Producing up-to-date charts of death rate for world, countries and
+  provinces
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Death rate was determined based on
+    \href{https://www.thelancet.com/journals/laninf/article/PIIS1473-3099\%2820\%2930195-X/fulltext}{The
+    Lancet article} by dividing the number of deaths on a given day by
+    the number of patients with confirmed COVID-19 infection 14 days
+    before.
+  \end{itemize}
+\item
+  Possibility to download aggregated datasets by world, countries and
+  provinces
+\item
+  Creating a dynamic map to show the trend of COVID-19 by confirmed,
+  recovered and deaths cases
+\item
+  Ranking the countries in terms of cumulative and daily data by
+  confirmed, recovered and deaths cases
+\item
+  Formulation of a simple version of an SEIR model to reflect the
+  disease dynamics
+\item
+  Estimation of epidemiological parameters including infection rate
+  (\(\beta\)), incubation rate (\(\sigma\)), recovery rate (\(\gamma\))
+  and reproduction number (\(R_0\))
+\item
+  Assessing the potential effect of social distancing intervention on
+  COVID-19 spread using SEIR model
+\end{itemize}
+
+Drawing of my 5-year-old daughter
+
+\end{document}

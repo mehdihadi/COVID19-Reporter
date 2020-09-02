@@ -1,0 +1,116 @@
+---
+title: "SEIR"
+output: html_document
+
+---
+<center> <img src= "www/SEIR.jpg" width="300"/> </center>
+
+### Disclaimer
+<font size="4" color="red"> Content from SEIR modeling section is STRICTLY ONLY for educational and research purposes and may contain errors. The model and data are inaccurate to the complex, evolving, and heterogeneous realities of different countries. Predictions are uncertain by nature. Readers must take any predictions with caution. </font>  
+ 
+<font size="4">In this dashboard a compartmental epidemiological model, based on the classic SEIR model was used to describe the spread of COVID-19. A nice primer to SEIR model is available on [Wikipedia](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology). If no intervention to mitigate social contacts is applied, the SEIR model for the basic condition can be described as follows:</font>  
+
+\begin{equation}
+\frac{dS_b}{dt}=-\frac{\beta {S_b}{I_b}}{N}
+\end{equation}
+
+\begin{equation}
+\frac{dE_b}{dt}=\frac{\beta {S_b}{I_b}}{N}-{\sigma {E_b}} \\
+\end{equation}
+
+\begin{equation}
+\frac{dI_b}{dt}={\sigma {E_b}}-{\gamma {I_b}} \\
+\end{equation}
+
+\begin{equation}
+\frac{dR_b}{dt}={\gamma {I_b}} \\
+\end{equation}
+
+
+### Variables at the basic condition
+* $S_b$: Susceptible individuals
+* $E_b$: Exposed individuals - infected but not yet infectious or symptomatic
+* $I_b$: Infected individuals   
+* $R_b$: individuals who have recovered from disease or dead
+* $N=S_b+E_b+I_b+R_b$: Total population size (constant)
+
+### Parameters
+* $\beta$: rate at which infected individuals in class $I$ contact susceptibles and infect them
+* $\sigma$: rate of progression from the exposed to infected class
+* $\gamma$: rate at which infected individuals in class $I$ recover from disease or become dead
+
+
+### Incorporate effect of social distancing
+
+<font size="4">Social distancing, or physical distancing, is a set of non-pharmaceutical interventions or measures taken to prevent the spread of a contagious disease by maintaining a physical distance between people and reducing the number of times people come into close contact with each other [(Wikipedia)](https://en.wikipedia.org/wiki/Social_distancing).It includes avoiding large gatherings, physical contact, and other efforts to mitigate the spread of infectious disease. According to above model, the term in model that this is going to impacted by incorporatig effect of social distansing is the contact rate, $\beta$.
+
+From the perspective of epidemiology, the basic goal behind social distancing is to decrease the basic reproduction number, $R_0$, which is the average number of secondary infected individuals generated from one primary infected individual in a population where all individuals are equally susceptible to a disease. In a basic model of social distancing,a proportion $f$ of the population engages in social distancing to decrease their interpersonal contacts to a fraction $c$ of their normal contacts [(Wikipedia)](https://en.wikipedia.org/wiki/Social_distancing).
+
+To introduce social distancing effect into ESIR model, SEIR system of differential equations can be modified as follows:</font>  
+
+
+
+\begin{equation}
+\frac{dS_i}{dt}=-\frac{\beta(1-(1-{c}\^{2}){f})S_iI_i}{N}
+\end{equation}
+
+\begin{equation}
+\frac{dE_i}{dt}=\frac{\beta(1-(1-{c}\^{2}){f}) S_iI_i}{N}-{\sigma E_i} \\
+\end{equation}
+
+\begin{equation}
+\frac{dI_i}{dt}={\sigma E_i}-{\gamma I_i} \\
+\end{equation}
+
+\begin{equation}
+\frac{dR_i}{dt}={\gamma I_i} \\
+\end{equation}
+
+### Variables in the model after intervention
+* $S_i$: Susceptible individuals after social dsitancing
+* $E_i$: Exposed individuals - infected but not yet infectious or symptomatic after social dsitancing
+* $I_i$: Infected individuals after social dsitancing   
+* $R_i$: Individuals who have recovered from disease or dead after social dsitancing
+* $N=S_i+E_i+I_i+R_i$: Total population size (constant)
+
+<font size="4">In the modified SEIR model, the values of $S_i$, $E_i$, $I_i$ and $R_i$ are directly dependent to $c$ and $f$. In the initial state of the intervention model it is assumed that nothing intervention was applied.In another word, total proportion of the population are not engages ($f$=0) in social distancing to decrease their interpersonal contacts to a fraction $c$ of their normal contacts and the initial value for fraction $c$ was assumed to be 1 or 100% ($c$=1). 
+Flattening the infection curve relies on mitigation by applying social distancing.Thus to see the effect of social distancing intervention, the value of $f$ and $c$ must be changed, simultaneously. By increasing the $f$ and decreasing $c$, the sharp peak of $I_i$ will be flattened to slow the spread of the epidemic and extend time for healthcare services to deal with demands.
+In this tool the initial values for $\sigma$ and $\gamma$ and $\beta$ are assumed to be 0.2, 0.04 and 0.5, respectively. This values are assumed based on literature ([1](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3551346)) .
+
+After intervention by changing $f$ and $c$, the effective reproduction number $R_t$ will be given by:</font> 
+
+
+\begin{equation}
+\{R_t}= (1-(1-{c}\^{2}){f}){R_0}
+\end{equation}
+
+
+<font size="4">For example, if 25% ($f$=25%) of the population reduce their social contacts to 50% ($c$=50%) of their normal level, the effective reproduction number will be about 81% of the basic reproduction number ($R_0$).</font>
+
+### Instructions for using SEIR model in this tool
+* Select your country or province (the defaults are all countries and all provinces).
+* Set the population size of your country or province (the default is the world population).
+* Decrease $c$ and increase $f$ to examine the effect of social distancing.
+
+
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by <a href="https://www.tums.ac.ir/faculties/m-hadi">Mahdi Hadi</a></p>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href ='https://scholar.google.com/citations?user=xSSU0wsAAAAJ&hl=en'  ><img src = 'https://camo.githubusercontent.com/970a33efbaca49ab23b521633f2f41ed1bb16707/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676f6f676c655f7363686f6c61722e737667' title = "Visit my Scholar" height = "15px" ></img>
+    </a>
+    <a href ='https://www.linkedin.com/in/mahdi-hadi-7081808/'  ><img src = 'https://camo.githubusercontent.com/45e6bebceba49c2cf76b1b3770b1adbe24e6c454/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6c696e6b6564696e2e737667' title = "Visit my linkedin" height = "15px" ></img>
+    </a>
+    <a href ='https://github.com/mehdihadi'  ><img src = 'https://camo.githubusercontent.com/d0518022b7a02d405ad5112a0c8aa455cbfe952e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667' title = "Visit my Github" height = "15px" ></img>
+    </a>
+    <a href = "mailto:m.hadi1981@gmail.com" ><img src = 'https://camo.githubusercontent.com/5bf17041186bbc591a286709593ee76baf2e4711/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676d61696c2e737667' title = "E-mai me"  height = "15px" ></img>
+    </a>
+    <a href = "tel:+989189061738" ><img src = 'https://camo.githubusercontent.com/fce4b2b8a7a33047fd617855c5b7564e61f10c17/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f70686f6e652e737667' title = "Tell me"  height = "15px" ></img>
+    </a>
+</p>
+&nbsp;
+
+ 

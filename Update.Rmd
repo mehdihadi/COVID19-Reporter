@@ -1,0 +1,81 @@
+---
+title: "Version"
+output: html_notebook
+
+---
+
+<center> 
+#### <span style="color: orange;">Data update:</span>
+#### <span style="color: orange;">**`r max(WorldSumDiffS$Date) `**</span>
+<br />
+#### <span style="color: yellow;"> Version 1.1 </span>
+
+</center> 
+
+ <style>
+.centerimg
+{
+    float:left;
+}
+.flex_img
+{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+
+
+<div class='flex_img'>
+    <div class='centerimg'>
+        <img src="www/iCorona.jpg" width="100" height="120" /> 
+    </div>
+</div> 
+
+<center> 
+#### <span style="color: yellow;"> Updates: </span>
+</center> 
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">6/29/2020: SEIR modeling</p>
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">6/10/2020: Flattening index</p>
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">6/10/2020: Growth rate</p>
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">6/1/2020: ETS forecasting</p>
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">5/25/2020: Cases slope</p>
+<p style="text-align: center;color: orange; font-family: Courier New ;font-size: 12px">5/23/2020: Report download</p>
+
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by <a href="https://www.tums.ac.ir/faculties/m-hadi">Mahdi Hadi</a></p>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href ='https://scholar.google.com/citations?user=xSSU0wsAAAAJ&hl=en'  ><img src = 'https://camo.githubusercontent.com/970a33efbaca49ab23b521633f2f41ed1bb16707/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676f6f676c655f7363686f6c61722e737667' title = "Visit my Scholar" height = "15px" ></img>
+    </a>
+    <a href ='https://www.linkedin.com/in/mahdi-hadi-7081808/'  ><img src = 'https://camo.githubusercontent.com/45e6bebceba49c2cf76b1b3770b1adbe24e6c454/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6c696e6b6564696e2e737667' title = "Visit my linkedin" height = "15px" ></img>
+    </a>
+    <a href ='https://github.com/mehdihadi'  ><img src = 'https://camo.githubusercontent.com/d0518022b7a02d405ad5112a0c8aa455cbfe952e/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6769746875622e737667' title = "Visit my Github" height = "15px" ></img>
+    </a>
+    <a href = "mailto:m.hadi1981@gmail.com" ><img src = 'https://camo.githubusercontent.com/5bf17041186bbc591a286709593ee76baf2e4711/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f676d61696c2e737667' title = "E-mail me"  height = "15px" ></img>
+    </a>
+    <a href = "tel:+989189061738" ><img src = 'https://camo.githubusercontent.com/fce4b2b8a7a33047fd617855c5b7564e61f10c17/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f70686f6e652e737667' title = "Tell me"  height = "15px" ></img>
+    </a>
+</p>
+&nbsp; 
+
+<center>
+<font size="2">
+#### <span style="color: orange;">`r paste0("Online users:", users$count)`</span>
+<!-- #### <span style="color: orange;">`r paste0("Total visits:", last(visits$Tvisit))`</span>  -->
+<!-- #### <span style="color: orange;">`r paste0("Today visits:", last(aggregate(visit~Date,visits,FUN = "sum" )[order(as.Date(aggregate(visit~Date,visits,FUN = "sum" )$Date, format="%d/%m/%Y")),]$visit))`</span>  -->
+</font>
+</center> 
+
+<!-- <a href ='https://twitter.com/Mhadi09967412'  ><img src = 'https://camo.githubusercontent.com/9bbddae7e626bda73c943e06b4568a7a02e193b4/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f747769747465722e737667' title = "Visit my twitter" height = "15px" ></img>
+    </a> -->
+    
+<!--#### <span style="color: green;"> Next updates: </span> 
+<font size="2">
+##### <span style="color: orange;">1.Involve population</span>
+</font>
+-->

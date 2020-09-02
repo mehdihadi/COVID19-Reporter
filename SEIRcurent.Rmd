@@ -1,0 +1,17 @@
+---
+output: html_notebook
+runtime: shiny
+---
+
+## Current basic condition
+<font size="3">
+The basic reproduction number, $R_0$, is the expected number of new infections from a single infection in a population where all subjects are susceptible. The estimated basic reproduction number is **`r sprintf("%.2f", R_zero)`**. The typical time between contacts and the estimated incubation period are **`r sprintf("%.2f", 1/(Opt()$par[1]*(1-(1-C^2)*F_Value)))`** and **`r sprintf("%.2f", 1/(Opt()$par[3]))`** days, respectively. The typical time for an infected individual to recover is **`r sprintf("%.2f", 1/(Opt()$par[2]))`** days. At the current condition which represent a **`r sprintf("%.2f", (1-Opt()$par[4])*100)`** % social contacts for **`r sprintf("%.2f", (1-(Opt()$par[5]))*100)`** % of population, it is expected that on **`r as.character(DateMax)`** the basic number of confirmed cases (I.b) will reach its peak number of **`r sprintf("%.0f", Imax)`** cases.
+
+* **Note**: It should be noticed that there are limitations to the analyses performed, including uncertainties around estimates of $R_0$ and and other parameters.
+
+
+<font>
+
+
+
+

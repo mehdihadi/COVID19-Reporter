@@ -1,0 +1,14 @@
+---
+output: html_notebook
+
+---
+
+
+## **Raw data**
+
+<font size="5">
+
+All data used in this application is from [Johns Hopkins CSSE](https://systems.jhu.edu/). The Following table was produced after applying several pre-processings on the [time-series raw data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series) are available in John Hopkins Github repository. Following table includes all data for **`r nrow(WorldSumDiffS)`** countries from **`r min(WorldDataMg$Date)`** to **`r max(WorldDataMg$Date)`**. For countries including   **`r DFCountry`**, the data are available at provincial level. You can download this table in .csv format by clicking the button under the table.   
+
+<font>
+ 

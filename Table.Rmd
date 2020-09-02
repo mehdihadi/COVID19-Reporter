@@ -1,0 +1,21 @@
+---
+output: html_notebook
+
+---
+
+
+## **Cumulative and new cases for countries**
+
+<font size="5">
+Globally, as of **`r  max(WorldSumDiffS$Date)  `**, there have been <span style="color: orange;">**`r sprintf("%.0f",  sum(WorldSumDiffS$Confirmed) )`**</span>  confirmed cases of COVID-19, including <span style="color: red;">**`r sprintf("%.0f",  sum(WorldSumDiffS$Deaths))`**</span> deaths, reported officialy by **`r nrow(WorldSumDiffS)`** countries. 
+At **`r max(WorldSumDiffS$Date)`**, there have been <span style="color: orange;">**`r sprintf("%.0f",  sum(WorldSumDiffS$New.Confirmed))`**</span> new confirmed cases including <span style="color: red;">**`r sprintf("%.0f",  sum(WorldSumDiffS$New.Deaths))`**</span> new deaths.
+You can download this table in .csv format by clicking the button under the table. 
+<font>
+
+ 
+
+
+
+
+ 
+

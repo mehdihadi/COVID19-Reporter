@@ -1,0 +1,22 @@
+
+---
+output: html_document
+---
+## **COVID-19 trend in `r ifelse(input$country=='Select all',print('the World'),paste(input$country,ifelse(input$province!= 'Select all',  paste(',',input$province) ,'')))`**
+
+<font size="4"> As of **`r  max(CountryDataTable()$Date)  `**, there have been <span style="color: orange;">**`r sprintf("%.0f",  sum(CountryDataTable()["Daily confirmed"]) )`**</span>  confirmed cases of COVID-19, including <span style="color: red;">**`r sprintf("%.0f",  sum(CountryDataTable()["Daily deaths"]))`**</span> deaths, reported officialy by `r ifelse(input$country=='Select all',print('the World'),paste(input$country,ifelse(input$province!= 'Select all',  paste(',',input$province) ,'')))`. 
+At **`r max(CountryDataTable()$Date)`**, there have been <span style="color: orange;">**`r sprintf("%.0f",  last(CountryDataTable()[,"Daily confirmed"]))`**</span> new confirmed cases including <span style="color: red;">**`r sprintf("%.0f",  last(CountryDataTable()[,"Daily deaths"]))`**</span> new deaths.
+
+Following table summarizes the statistics for daily cases of COVID-19. As presented, the mean for confirmed, recovered
+and deaths cases are **`r paste(sprintf("%.0f",CountrySummary[1,1]),"±",sprintf("%.0f",CountrySummary[2,1]))`**, **`r paste(sprintf("%.0f",CountrySummary[1,2]),"±",sprintf("%.0f",CountrySummary[2,2]))`** and **`r paste(sprintf("%.0f",CountrySummary[1,3]),"±",sprintf("%.0f",CountrySummary[2,3]))`**, respectively.
+<font>
+
+```{r,echo=F,  out.width = "30%" }
+library(knitr)
+library(kableExtra)
+library(plyr)
+library(dplyr)
+kable(CountrySummary, longtable = TRUE,  caption = paste("Table 2: Summary statistics for",ifelse(input$country=='Select all',print('the World'),paste(input$country,ifelse(input$province!= 'Select all', paste(',',input$province) ,''))))) %>% 
+  kable_styling(full_width = F)  
+ 
+```
