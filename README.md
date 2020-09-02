@@ -6,7 +6,7 @@
  
 ## SHINY INTERFACE
 Follow [this](https://mahdi-hadi.shinyapps.io/covid19-reporter/) link for the interactive Shiny app. A screenshot of the interface is provided below.
-<img src = 'https://camo.githubusercontent.com/45e6bebceba49c2cf76b1b3770b1adbe24e6c454/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6c696e6b6564696e2e737667' title = "Visit my linkedin" height = "30px" ></img>
+<img src = 'https://github.com/mehdihadi/COVID19-Reporter/blob/master/Interface.png' title = "The application interface"  ></img>
 
 ## SOURCE OF DATA
 
