@@ -1,5 +1,8 @@
 # COVID19-Reporter
 
+<center> <img src= "www/Corona.png" width="200"/> </center>
+<font size="2"><center> Drawing of my 5-year-old daughter</center></font> 
+
 ## ABOUT THIS DASHBOARD
 
 <font size="4">The COVID-19 (2019-nCoV) is a serious disease around the globe. This disease is spreading rapidly throughout the world and there are more and more online resources about it. This application was created to be used as one of resources on the COVID-19. This dashboard can provide an overview of the COVID-19 epidemic for world, countries and provinces. The data and dashboard are refreshed on a daily basis.</font> 
