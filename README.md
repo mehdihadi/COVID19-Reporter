@@ -1,6 +1,6 @@
 # COVID19-Reporter
 
-<center> <img src= "www/Corona.png" width="200"/> </center>
+<center> <img src= "https://github.com/mehdihadi/COVID19-Reporter/blob/master/Corona.png" width="200"/> </center>
 <font size="2"><center> Drawing of my 5-year-old daughter</center></font> 
 
 ## ABOUT THIS DASHBOARD
